@@ -24,6 +24,35 @@ Proyek ini dikembangkan sebagai karya akhir (**Final Project**) dalam program pe
 
 ---
 
+## 📸 Tangkapan Layar (Screenshots)
+
+### 1. Beranda & Asisten Virtual Aruna
+Tampilan interaktif dengan statistik nusantara, tombol inspirasi cepat (*quick prompts*), dan antarmuka obrolan pintar Aruna.
+
+![Beranda & Chatbot Aruna](docs/screenshots/01_hero_dan_chatbot.png)
+
+### 2. Destinasi Unggulan Interaktif
+Kartu destinasi dengan visual memikat (Raja Ampat, Borobudur, Wisata Pulau Sabang di Aceh, dan Gunung Bromo) serta tombol 1-klik untuk menanyakan informasi ke AI.
+
+![Destinasi Unggulan](docs/screenshots/02_destinasi_unggulan.png)
+
+### 3. Interaksi Obrolan Cerdas (Itinerary & Budaya)
+Aruna menyusun rencana perjalanan terstruktur per waktu (pagi, siang, sore/malam) lengkap dengan tips etika budaya dan rekomendasi kuliner lokal.
+
+![Interaksi Chatbot Aruna](docs/screenshots/04_chat_interaktif_aruna.png)
+
+### 4. Fitur Cerdas Kecerdasan Buatan
+Rangkuman pilar kecerdasan buatan Aruna: itinerary terpersonalisasi, kurasi kuliner autentik, ensiklopedi adat, dan koneksi real-time.
+
+![Fitur Cerdas AI](docs/screenshots/03_fitur_cerdas_ai.png)
+
+### 5. Tampilan Penuh Aplikasi Web
+Tangkapan layar menyeluruh dari header hingga footer.
+
+![Tampilan Penuh Jelajah Nusantara](docs/screenshots/05_tampilan_lengkap.png)
+
+---
+
 ## 🛠️ Arsitektur & Teknologi
 
 ### **Frontend**
@@ -49,6 +78,13 @@ jelajah-nusantara/
 ├── .env                  # Variabel lingkungan rahasia (API Keys)
 ├── .env.example          # Contoh template variabel lingkungan
 ├── .gitignore            # Daftar berkas/folder yang diabaikan git
+├── docs/                 # Dokumentasi & tangkapan layar
+│   └── screenshots/      # Berkas screenshot antarmuka website
+│       ├── 01_hero_dan_chatbot.png
+│       ├── 02_destinasi_unggulan.png
+│       ├── 03_fitur_cerdas_ai.png
+│       ├── 04_chat_interaktif_aruna.png
+│       └── 05_tampilan_lengkap.png
 ├── public/               # Asset statis yang disajikan frontend
 │   ├── index.html        # Halaman utama aplikasi
 │   ├── style.css         # Styling antarmuka dan desain responsif
