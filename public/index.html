@@ -1,20 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gemini AI Chatbot</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jelajah Nusantara - Sahabat AI Petualangan Wisata & Budaya Indonesia</title>
+  <meta name="description"
+    content="Eksplorasi keindahan alam, kekayaan budaya, dan kuliner autentik 38 provinsi Indonesia bersama Aruna, pemandu wisata cerdas berbasis AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <h1>Gemini AI Chatbot</h1>
-    <div id="chat-box" class="chat-box"></div>
-    <form id="chat-form">
-      <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required />
-      <button type="submit">Send</button>
-    </form>
-  </div>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#beranda" class="logo">
+        <span class="logo-icon">🏝️</span>
+        <div class="logo-text">
+          <span class="brand-name">Jelajah Nusantara</span>
+          <span class="brand-tagline">AI Cultural & Travel Guide</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#beranda" class="nav-link active">Beranda</a>
+        <a href="#destinasi" class="nav-link">Destinasi Populer</a>
+        <a href="#fitur" class="nav-link">Fitur Cerdas</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#chat-section" class="btn-header-cta">Tanya AI</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section (Split View with Live AI Chat) -->
+    <section id="beranda" class="hero-section">
+      <div class="hero-bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <!-- Left Column: Copywriting & Value Proposition -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>Panduan Wisata & Budaya Indonesia</span>
+          </div>
+
+          <h1 class="hero-title">
+            Eksplorasi Keindahan & Ragam Budaya <span class="gradient-text">Nusantara</span> Bersama AI
+          </h1>
+
+          <p class="hero-description">
+            Rencanakan liburan impian, temukan surga tersembunyi, hingga telusuri filosofi adat dan kuliner legendaris
+            Indonesia bersama <strong>Aruna</strong>, pemandu wisata virtual pribadimu.
+          </p>
+
+          <!-- Quick Highlight Statistics -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">38</span>
+              <span class="stat-label">Provinsi Nusantara</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">17.000+</span>
+              <span class="stat-label">Pulau Eksotis</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Rekomendasi Cerdas</span>
+            </div>
+          </div>
+
+          <!-- Quick Starter Prompts -->
+          <div class="hero-quick-prompts">
+            <span class="quick-title">Coba tanyakan langsung:</span>
+            <div class="chip-container">
+              <button type="button" class="quick-chip"
+                data-prompt="Rekomendasikan hidden gem wisata 3 hari di Sumba untuk pemula">
+                🏝️ Hidden gem di Sumba
+              </button>
+              <button type="button" class="quick-chip"
+                data-prompt="Apa saja kuliner legendaris khas Solo yang wajib dicoba malam hari?">
+                🍜 Kuliner malam khas Solo
+              </button>
+              <button type="button" class="quick-chip"
+                data-prompt="Buatkan rencana perjalanan 2 hari 1 malam ke Gunung Bromo dari Surabaya">
+                🌋 Itinerary Bromo 2H1M
+              </button>
+              <button type="button" class="quick-chip"
+                data-prompt="Ceritakan sejarah dan keunikan Rumah Gadang khas Minangkabau">
+                🏛️ Sejarah Rumah Gadang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Chatbot Interface -->
+        <div id="chat-section" class="chat-wrapper">
+          <div class="chat-card">
+            <!-- Chat Card Header -->
+            <div class="chat-header">
+              <div class="assistant-profile">
+                <div class="avatar-ring">
+                  <div class="avatar">🌺</div>
+                  <span class="online-badge"></span>
+                </div>
+                <div class="assistant-info">
+                  <h3 class="assistant-name">Aruna • Kawan Jelajah</h3>
+                  <span class="assistant-role">Pemandu Wisata & Budaya Nusantara</span>
+                </div>
+              </div>
+              <button type="button" id="reset-chat-btn" class="btn-icon" title="Mulai Obrolan Baru"
+                aria-label="Mulai Obrolan Baru">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                  <path d="M21 3v5h-5"></path>
+                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                  <path d="M3 21v-5h5"></path>
+                </svg>
+                <span>Reset</span>
+              </button>
+            </div>
+
+            <!-- Chat Messages Container -->
+            <div id="chat-box" class="chat-box">
+              <!-- Initial Welcome Message from Aruna -->
+              <div class="message bot welcome-message">
+                <div class="msg-avatar">🌺</div>
+                <div class="msg-bubble">
+                  <p><strong>Salam Hangat!</strong> 🙏</p>
+                  <p>Saya <strong>Aruna</strong>, sahabat virtual perjalananmu. Ingin mencari destinasi eksotis, kuliner
+                    khas, atau menyusun itinerary liburan di Indonesia hari ini?</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input Form -->
+            <form id="chat-form" class="chat-form">
+              <div class="input-wrapper">
+                <input type="text" id="user-input" placeholder="Tanya rekomendasi tempat, kuliner, atau budaya..."
+                  autocomplete="off" required />
+                <button type="submit" id="send-button" class="btn-send" aria-label="Kirim Pesan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </div>
+              <div class="input-hint">
+                <span>Tekan <kbd>Enter</kbd> untuk mengirim pesan ke Aruna</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Destinations Section -->
+    <section id="destinasi" class="destinations-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Destinasi Unggulan</span>
+          <h2 class="section-title">Inspirasi Petualangan di Pelosok Negeri</h2>
+          <p class="section-subtitle">Pilih destinasi favoritmu dan tanyakan langsung informasi lengkapnya kepada Aruna
+            dengan satu klik.</p>
+        </div>
+
+        <div class="destinations-grid">
+          <!-- Card 1: Raja Ampat -->
+          <article class="destination-card">
+            <div class="card-media">
+              <img src="images/raja-ampat.jpg" alt="Keindahan Kepulauan Karst dan Laguna Raja Ampat Papua"
+                loading="lazy" />
+              <span class="card-badge">Papua Barat Daya</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">Bahari & Cagar Laut</div>
+              <h3 class="card-title">Kepulauan Raja Ampat</h3>
+              <p class="card-desc">Gugusan pulau karang zamrud dengan keanekaragaman hayati bawah laut terkaya di dunia.
+              </p>
+              <button type="button" class="btn-ask-destination"
+                data-prompt="Berikan panduan lengkap berkunjung ke Raja Ampat: spot diving terbaik, rute transportasi, dan estimasi biaya.">
+                <span>Tanya tentang destinasi ini</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: Borobudur -->
+          <article class="destination-card">
+            <div class="card-media">
+              <img src="images/borobudur.jpg" alt="Candi Borobudur saat matahari terbit di Magelang Jawa Tengah"
+                loading="lazy" />
+              <span class="card-badge">Jawa Tengah</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">Warisan Budaya Dunia</div>
+              <h3 class="card-title">Candi Borobudur</h3>
+              <p class="card-desc">Monumen Buddha terbesar di dunia yang berdiri megah sejak abad ke-8 di perbukitan
+                Menoreh.</p>
+              <button type="button" class="btn-ask-destination"
+                data-prompt="Ceritakan sejarah Candi Borobudur, relief utamanya, dan waktu terbaik menyaksikan golden sunrise.">
+                <span>Tanya tentang destinasi ini</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3: Wisata Pulau Sabang -->
+          <article class="destination-card">
+            <div class="card-media">
+              <img src="images/sabang.jpg" alt="Pesona laut jernih dan keindahan pantai di Pulau Sabang Aceh"
+                loading="lazy" />
+              <span class="card-badge">Aceh</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">Wisata Bahari & Titik Nol KM</div>
+              <h3 class="card-title">Wisata Pulau Sabang</h3>
+              <p class="card-desc">Surga bahari di ujung barat Nusantara dengan perairan toska jernih, spot snorkeling
+                Pulau Rubiah, dan Tugu Kilometer Nol.</p>
+              <button type="button" class="btn-ask-destination"
+                data-prompt="Buatkan rekomendasi wisata ke Pulau Sabang di Aceh: spot snorkeling Pulau Rubiah, Tugu Kilometer Nol, dan kuliner khas Sabang.">
+                <span>Tanya tentang destinasi ini</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4: Gunung Bromo -->
+          <article class="destination-card">
+            <div class="card-media">
+              <img src="images/bromo.jpg" alt="Lautan Pasir dan Kawah Gunung Bromo Jawa Timur" loading="lazy" />
+              <span class="card-badge">Jawa Timur</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">Gunung & Petualangan</div>
+              <h3 class="card-title">Gunung Bromo</h3>
+              <p class="card-desc">Panorama kawah aktif nan magis di tengah kaldera raksasa, lautan pasir berbisik, dan
+                bukit teletubbies.</p>
+              <button type="button" class="btn-ask-destination"
+                data-prompt="Buatkan itinerary 2 hari 1 malam ke Gunung Bromo lengkap dengan tips sewa jeep dan pakaian yang cocok.">
+                <span>Tanya tentang destinasi ini</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Smart Features Section -->
+    <section id="fitur" class="features-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Kecerdasan Buatan</span>
+          <h2 class="section-title">Mengapa Menjelajah Bersama Aruna?</h2>
+          <p class="section-subtitle">Lebih dari sekadar pencarian biasa, Aruna memahami konteks budaya dan kebutuhan
+            unik setiap wisatawan.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🗺️</div>
+            <h3 class="feature-title">Itinerary Terpersonalisasi</h3>
+            <p class="feature-desc">Susun jadwal harian otomatis yang disesuaikan dengan minatmu, mulai dari liburan
+              santai keluarga hingga petualangan solo backpacker.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🍲</div>
+            <h3 class="feature-title">Kurasi Kuliner Autentik</h3>
+            <p class="feature-desc">Temukan rempah rahasia, warung legendaris, serta hidangan tradisional tersembunyi
+              yang direkomendasikan langsung oleh tradisi lokal.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏛️</div>
+            <h3 class="feature-title">Ensiklopedi Adat & Budaya</h3>
+            <p class="feature-desc">Pelajari norma sopan santun, makna filosofis tarian sakral, arsitektur rumah adat,
+              dan sejarah warisan leluhur nusantara.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Koneksi Real-time Cepat</h3>
+            <p class="feature-desc">Mendukung dialog multi-putaran interaktif dengan pemahaman bahasa Indonesia yang
+              natural dan ramah setiap saat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon">🏝️</span>
+          <span class="brand-name">Jelajah Nusantara</span>
+        </div>
+        <p class="footer-tagline">
+          Merayakan keragaman suku, bahasa, adat, dan bentang alam Indonesia lewat teknologi kecerdasan buatan terdepan.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Eksplorasi Wilayah</h4>
+        <ul>
+          <li><a href="#chat-section" class="footer-prompt-link"
+              data-prompt="Rekomendasi wisata alam terbaik di Pulau Sumatera">Sumatera</a></li>
+          <li><a href="#chat-section" class="footer-prompt-link"
+              data-prompt="Destinasi budaya dan sejarah terpopuler di Pulau Jawa">Jawa</a></li>
+          <li><a href="#chat-section" class="footer-prompt-link"
+              data-prompt="Surga tersembunyi di Bali dan Kepulauan Nusa Tenggara">Bali & Nusa Tenggara</a></li>
+          <li><a href="#chat-section" class="footer-prompt-link"
+              data-prompt="Ekowisata dan hutan hujan tropis di Kalimantan">Kalimantan</a></li>
+          <li><a href="#chat-section" class="footer-prompt-link"
+              data-prompt="Taman nasional bawah laut dan tradisi megalitikum di Sulawesi">Sulawesi</a></li>
+          <li><a href="#chat-section" class="footer-prompt-link"
+              data-prompt="Pesona pulau rempah dan keajaiban alam di Maluku dan Papua">Maluku & Papua</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Teknologi</h4>
+        <ul>
+          <li><span>Google Gemini AI</span></li>
+          <li><span>Node.js & Express</span></li>
+          <li><span>Multi-turn Conversation</span></li>
+          <li><span>Vanilla Modern Web</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+      <p>&copy; 2026 Jelajah Nusantara. Dibuat dengan cinta untuk pariwisata Indonesia.</p>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
+
 </html>
