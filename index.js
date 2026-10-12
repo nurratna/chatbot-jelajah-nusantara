@@ -1,15 +1,18 @@
 import "dotenv/config";
 import express from "express";
 import multer from "multer";
+import cors from "cors";
 import { GoogleGenAI } from "@google/genai";
 
-const upload = multer();
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const model = process.env.GEMINI_MODEL;
 
 const app = express();
+const upload = multer();
 
+app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 
 app.post("/generate-text", async (req, res) => {
     const { prompt } = req.body;
